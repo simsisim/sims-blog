@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Introduction to Git" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
-<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta name="description" content="A list of commands for Git on Github" />
+<meta property="og:description" content="A list of commands for Git on Github" />
 <link rel="canonical" href="https://simsisim.github.io/sims-blog/github/2020/12/20/Intro_to_Git.html" />
 <meta property="og:url" content="https://simsisim.github.io/sims-blog/github/2020/12/20/Intro_to_Git.html" />
 <meta property="og:site_name" content="fastpages" />
@@ -17,7 +17,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-12-20T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://simsisim.github.io/sims-blog/github/2020/12/20/Intro_to_Git.html","@type":"BlogPosting","headline":"Introduction to Git","dateModified":"2020-12-20T00:00:00-06:00","datePublished":"2020-12-20T00:00:00-06:00","image":"https://simsisim.github.io/sims-blog/images/chart-preview.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://simsisim.github.io/sims-blog/github/2020/12/20/Intro_to_Git.html"},"@context":"https://schema.org"}</script>
+{"description":"A list of commands for Git on Github","url":"https://simsisim.github.io/sims-blog/github/2020/12/20/Intro_to_Git.html","@type":"BlogPosting","headline":"Introduction to Git","dateModified":"2020-12-20T00:00:00-06:00","datePublished":"2020-12-20T00:00:00-06:00","image":"https://simsisim.github.io/sims-blog/images/chart-preview.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://simsisim.github.io/sims-blog/github/2020/12/20/Intro_to_Git.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/sims-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://simsisim.github.io/sims-blog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/sims-blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -72,7 +72,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Introduction to Git</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-12-20T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Introduction to Git</h1><p class="page-description">A list of commands for Git on Github</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-12-20T00:00:00-06:00" itemprop="datePublished">
         Dec 20, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -117,10 +117,12 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#Checking-the-status-of-the-repository-(go-inside--project-folder):">Checking the status of the repository (go inside  project folder): </a></li>
-<li class="toc-entry toc-h2"><a href="#Staging-files-(add-files-to-the-staging-area)">Staging files (add files to the staging area) </a></li>
-<li class="toc-entry toc-h2"><a href="#Making-commits:">Making commits: </a></li>
-<li class="toc-entry toc-h2"><a href="#Pushing-Changes-to-Repository:">Pushing Changes to Repository: </a></li>
+<li class="toc-entry toc-h2"><a href="#1.-Open-Terminal">1. Open Terminal </a></li>
+<li class="toc-entry toc-h2"><a href="#2.-Change-the-current-working-directory-to-your-local-repository">2. Change the current working directory to your local repository </a></li>
+<li class="toc-entry toc-h2"><a href="#3.-Checking-the-status-of-the-repository-(go-inside--project-folder):">3. Checking the status of the repository (go inside  project folder): </a></li>
+<li class="toc-entry toc-h2"><a href="#4.-Staging-files-(add-files-to-the-staging-area)">4. Staging files (add files to the staging area) </a></li>
+<li class="toc-entry toc-h2"><a href="#5.-Making-commits:">5. Making commits: </a></li>
+<li class="toc-entry toc-h2"><a href="#6.-Pushing-Changes-to-Repository:">6. Pushing Changes to Repository: </a></li>
 </ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
@@ -142,8 +144,26 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Checking-the-status-of-the-repository-(go-inside--project-folder):">
-<a class="anchor" href="#Checking-the-status-of-the-repository-(go-inside--project-folder):" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checking the status of the repository (go inside  project folder):<a class="anchor-link" href="#Checking-the-status-of-the-repository-(go-inside--project-folder):"> </a>
+<h2 id="1.-Open-Terminal">
+<a class="anchor" href="#1.-Open-Terminal" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Open Terminal<a class="anchor-link" href="#1.-Open-Terminal"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-Change-the-current-working-directory-to-your-local-repository">
+<a class="anchor" href="#2.-Change-the-current-working-directory-to-your-local-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Change the current working directory to your local repository<a class="anchor-link" href="#2.-Change-the-current-working-directory-to-your-local-repository"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.-Checking-the-status-of-the-repository-(go-inside--project-folder):">
+<a class="anchor" href="#3.-Checking-the-status-of-the-repository-(go-inside--project-folder):" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Checking the status of the repository (go inside  project folder):<a class="anchor-link" href="#3.-Checking-the-status-of-the-repository-(go-inside--project-folder):"> </a>
 </h2>
 </div>
 </div>
@@ -168,8 +188,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Staging-files-(add-files-to-the-staging-area)">
-<a class="anchor" href="#Staging-files-(add-files-to-the-staging-area)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Staging files (add files to the staging area)<a class="anchor-link" href="#Staging-files-(add-files-to-the-staging-area)"> </a>
+<h2 id="4.-Staging-files-(add-files-to-the-staging-area)">
+<a class="anchor" href="#4.-Staging-files-(add-files-to-the-staging-area)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Staging files (add files to the staging area)<a class="anchor-link" href="#4.-Staging-files-(add-files-to-the-staging-area)"> </a>
 </h2>
 </div>
 </div>
@@ -214,8 +234,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Making-commits:">
-<a class="anchor" href="#Making-commits:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Making commits:<a class="anchor-link" href="#Making-commits:"> </a>
+<h2 id="5.-Making-commits:">
+<a class="anchor" href="#5.-Making-commits:" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Making commits:<a class="anchor-link" href="#5.-Making-commits:"> </a>
 </h2>
 </div>
 </div>
@@ -260,8 +280,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Pushing-Changes-to-Repository:">
-<a class="anchor" href="#Pushing-Changes-to-Repository:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pushing Changes to Repository:<a class="anchor-link" href="#Pushing-Changes-to-Repository:"> </a>
+<h2 id="6.-Pushing-Changes-to-Repository:">
+<a class="anchor" href="#6.-Pushing-Changes-to-Repository:" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Pushing Changes to Repository:<a class="anchor-link" href="#6.-Pushing-Changes-to-Repository:"> </a>
 </h2>
 </div>
 </div>
