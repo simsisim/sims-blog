@@ -2,8 +2,8 @@
   
     
         "post0": {
-            "title": "Introduction to Git",
-            "content": "https://www.notion.so/Introduction-to-Git-ac396a0697704709a12b6a0e545db049 . https://www.youtube.com/watch?v=USjZcfj8yxE&amp;t=172s . 1. Open Terminal . 2. Change the current working directory to your local repository . 3. Checking the status of the repository (go inside project folder): . git status . 4. Staging files (add files to the staging area) . touch test.py git add test.py #git add test01.py test02.py test03.py git add . # adds all files in the directory . git reset HEAD test.py #unstage a file that was commited . 5. Making commits: . git commit -m &quot;Commit message&quot; # commiz a file git log # list of all comits . git checkout &lt;commit-hash&gt; # go back to a previous commited state git checkout master # go back to last commit . 6. Pushing Changes to Repository: . git push origin .",
+            "title": "A list of commands for Git on Github",
+            "content": "1. Open Terminal . 2. Change the current working directory to your local repository . 3. Checking the status of the repository (go inside project folder) . git status . 4. Staging files (add files to the staging area) . touch test.py git add test.py #git add test01.py test02.py test03.py git add . # adds all files in the directory . git reset HEAD test.py #unstage a file that was commited . 5. Making commits . git commit -m &quot;Commit message&quot; # commit a file git log # list of all comits git checkout &lt;commit-hash&gt; # go back to a previous commited state git checkout master # go back to last commit . 6. Pushing Changes to Repository . git push origin . References: . https://www.notion.so/Introduction-to-Git-ac396a0697704709a12b6a0e545db049 . https://www.youtube.com/watch?v=USjZcfj8yxE&amp;t=172s .",
             "url": "https://simsisim.github.io/sims-blog/github/2020/12/20/Intro_to_Git.html",
             "relUrl": "/github/2020/12/20/Intro_to_Git.html",
             "date": " • Dec 20, 2020"
