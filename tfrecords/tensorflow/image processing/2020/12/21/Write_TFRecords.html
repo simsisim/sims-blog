@@ -270,15 +270,16 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">##load all files in folder</span>
-<span class="c1">#list_files = glob.glob("images/TFRecords/*.png")</span>
-<span class="c1">#with tf.io.TFRecordWriter(record_file) as writer:</span>
-<span class="c1">#    for _, filename in enumerate(list_files):</span>
-<span class="c1">#        image_string = open(filename, 'rb').read()#reads each image in list in bytes format</span>
-<span class="c1">#        feature = {"raw_image": _create_bytes_feature(image_string)} #create a feature named values which contains the whole bytes array</span>
-<span class="c1">#        tf_example = tf.train.Example(features=tf.train.Features(feature=feature))#creates an example </span>
-<span class="c1">#        writer.write(tf_example.SerializeToString())</span>
-<span class="c1">##image_string    </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">record_file</span> <span class="o">=</span> <span class="s2">"images/TFRecords/my-tfR.tfrecords"</span>
+<span class="c1">#load all files in folder</span>
+<span class="n">list_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"images/TFRecords/*.png"</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">TFRecordWriter</span><span class="p">(</span><span class="n">record_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">filename</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_files</span><span class="p">):</span>
+        <span class="n">image_string</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="c1">#reads each image in list in bytes format</span>
+        <span class="n">feature</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"raw_image"</span><span class="p">:</span> <span class="n">_create_bytes_feature</span><span class="p">(</span><span class="n">image_string</span><span class="p">)}</span> <span class="c1">#create a feature named values which contains the whole bytes array</span>
+        <span class="n">tf_example</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Example</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Features</span><span class="p">(</span><span class="n">feature</span><span class="o">=</span><span class="n">feature</span><span class="p">))</span><span class="c1">#creates an example </span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tf_example</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">())</span>
+<span class="c1">#image_string    </span>
 </pre></div>
 
     </div>
