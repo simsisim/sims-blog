@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "Commands",
-            "content": "1.Execute jupyter notebook in command line . jupyter nbconvert --to notebook --inplace --execute my-file.ipynb . 2. Convert jupyter notebook to python script . jupyter nbconvert --to script my-file.ipynb . 3. Include image in jupyter notebook . from IPython.display import Image Image(url=&quot;images/calculator_erased.jpg&quot;, width=200) . 4. Markdown guide . https https://about.gitlab.com/handbook/markdown-guide/ .",
+            "content": "1.Execute jupyter notebook in command line . jupyter nbconvert --to notebook --inplace --execute my-file.ipynb . 2. Convert jupyter notebook to python script . jupyter nbconvert --to script my-file.ipynb . 3. Include image in jupyter notebook . ![](images/calculator_erased.jpg) . . from IPython.display import Image Image(url=&quot;images/calculator_erased.jpg&quot;, width=200) . 4. Rename *.py filename . import os filename = &quot;2020-12-29-build_dataset.py&quot; new_filename = (filename.split(sep = &quot;-&quot;)[-1]).split(sep = &quot;.&quot;)[0] + &quot;.py&quot; os.rename(filename, new_filename) . 4. Markdown guide . https https://about.gitlab.com/handbook/markdown-guide/ .",
             "url": "https://simsisim.github.io/sims-blog/commands/2020/12/22/Commands.html",
             "relUrl": "/commands/2020/12/22/Commands.html",
             "date": " • Dec 22, 2020"
