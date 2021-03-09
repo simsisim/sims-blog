@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Draw Shapes in Matplotlib | Sim’s Jupyter Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Draw Shapes in Matplotlib" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Draw Shapes in Matplotlib" />
+<meta property="og:description" content="Draw Shapes in Matplotlib" />
+<link rel="canonical" href="https://simsisim.github.io/sims-blog/matplotlib/2021/02/09/drawShapes.html" />
+<meta property="og:url" content="https://simsisim.github.io/sims-blog/matplotlib/2021/02/09/drawShapes.html" />
+<meta property="og:site_name" content="Sim’s Jupyter Blog" />
+<meta property="og:image" content="https://simsisim.github.io/sims-blog/images/chart-preview.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-09T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"Draw Shapes in Matplotlib","url":"https://simsisim.github.io/sims-blog/matplotlib/2021/02/09/drawShapes.html","@type":"BlogPosting","headline":"Draw Shapes in Matplotlib","dateModified":"2021-02-09T00:00:00-06:00","datePublished":"2021-02-09T00:00:00-06:00","image":"https://simsisim.github.io/sims-blog/images/chart-preview.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://simsisim.github.io/sims-blog/matplotlib/2021/02/09/drawShapes.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/sims-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://simsisim.github.io/sims-blog/feed.xml" title="Sim's Jupyter Blog" /><link rel="shortcut icon" type="image/x-icon" href="/sims-blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/sims-blog/">Sim&#39;s Jupyter Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/sims-blog/about/">About Me</a><a class="page-link" href="/sims-blog/search/">Search</a><a class="page-link" href="/sims-blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Draw Shapes in Matplotlib</h1><p class="page-description">Draw Shapes in Matplotlib</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-09T00:00:00-06:00" itemprop="datePublished">
+        Feb 9, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/sims-blog/categories/#matplotlib">matplotlib</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/simsisim/sims-blog/tree/master/_notebooks/2021-02-09-drawShapes.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/sims-blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/simsisim/sims-blog/master?filepath=_notebooks%2F2021-02-09-drawShapes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/sims-blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/simsisim/sims-blog/blob/master/_notebooks/2021-02-09-drawShapes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/sims-blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#1.-Install-openFoam">1. Install openFoam </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-02-09-drawShapes.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.-Install-openFoam">
+<a class="anchor" href="#1.-Install-openFoam" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Install openFoam<a class="anchor-link" href="#1.-Install-openFoam"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+<span class="c1">#from matplotlib.patches import Polygon, Circle, Rectangle, Wedge</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Circle</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.58</span><span class="p">),</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">),</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.35</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.35</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.42</span><span class="p">]])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.20</span><span class="p">,</span><span class="mf">0.20</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.20</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.32</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.13</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.20</span><span class="p">,</span><span class="mf">0.20</span><span class="p">]])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.10</span><span class="p">,</span><span class="mf">0.20</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.20</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.32</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.13</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.20</span><span class="p">,</span><span class="mf">0.20</span><span class="p">]])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">),</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+<span class="c1"># combinations</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.62</span><span class="p">),</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Circle</span><span class="p">([</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Circle</span><span class="p">([</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">],</span> <span class="mf">0.04</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Circle</span><span class="p">([</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">],</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Circle</span><span class="p">([</span><span class="mf">0.70</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">],</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.65</span><span class="p">,</span><span class="mf">0.15</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.15</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.65</span><span class="p">,</span><span class="mf">0.4</span><span class="p">]])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Circle</span><span class="p">([</span><span class="mf">0.70</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">],</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+
+<span class="c1">#plt.axis('off')</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"shapes.png"</span><span class="p">,</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="mf">0.23</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span> <span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">,</span>\
+                                      <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">'k'</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s2">"None"</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.40</span><span class="p">,</span><span class="mf">0.45</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.50</span><span class="p">,</span><span class="mf">0.45</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.4</span><span class="p">]])</span>
+<span class="c1">#ax1.patches.append(mpatches.Polygon(y, transform=fig.transFigure))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Circle</span><span class="p">([</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">],</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">([</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">],</span> <span class="mf">0.10</span><span class="p">,</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">transFigure</span><span class="p">))</span>
+<span class="c1">#ax1.patches.append(mpatches.Rectangle((0.4, 0.4), 0.20, 0.025, transform=fig.transFigure))</span>
+<span class="n">y_list</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.4</span><span class="p">,</span>  <span class="mf">0.50</span><span class="p">,</span>  <span class="mf">0.60</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_list</span><span class="p">):</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mf">0.135</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mf">0.115</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+          <span class="n">head_width</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span> 
+    <span class="c1">#ax1.arrow(0.85, y, 0.1, 0, length_includes_head=True,</span>
+    <span class="c1">#      head_width=0.03, head_length=0.02)     </span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.139</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="s2">"U = const"</span><span class="p">)</span>    
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.72</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s2">"p = 0 bar"</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">,</span> <span class="s2">"no slip"</span><span class="p">)</span> 
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"BCs.png"</span><span class="p">,</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="simsisim/sims-blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/sims-blog/matplotlib/2021/02/09/drawShapes.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/sims-blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/sims-blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/sims-blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/simsisim" title="simsisim"><svg class="svg-icon grey"><use xlink:href="/sims-blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
